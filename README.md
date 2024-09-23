@@ -71,6 +71,20 @@ node --version
 npm -v
 ```
 
+### *. Auth Git
+
+#### *.1 Generate SSH keys
+```sh
+ssh-keygen -t rsa -m PEM
+```
+
+#### *.2 view your public ssh key
+```sh
+sudo cat ~/.ssh/id_rsa.pub
+```
+
+#### *.3 Paste it to github
+
 ### 4. Clone nodejs-ssl-server repository
 
 ```sh
