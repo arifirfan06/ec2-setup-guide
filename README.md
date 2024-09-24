@@ -8,10 +8,38 @@ https://sirfitz.medium.com/setting-up-an-nginx-instance-with-certbot-and-configu
 
 ### 1. Open site location nginx console
 
+```sh
+server {
+ listen 80;
+ server_name minio.asterskills.com;
+location / {
+        proxy_pass http://0.0.0.0:9001;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;     
+        proxy_set_header Upgrade \$http_upgrade\;
+        proxy_set_header Connection "Upgrade";
+    }
+}
+```
+
 ### 2. ssh to ubuntu to install packages
 
 ```sh
-ssh -i <key.pem> ubuntu@<ip-address> -v
+server {
+ listen 80;
+ server_name minio.asterskills.com;
+location / {
+        proxy_pass http://0.0.0.0:9001;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;     
+        proxy_set_header Upgrade \$http_upgrade\;
+        proxy_set_header Connection "Upgrade";
+    }
+}
 ```
 
 ### 3. Update and Upgrade linux machine and install node and nvm 
